@@ -1,0 +1,93 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+#container
+{
+    display: flex;
+    
+
+}
+#list{
+    display: flex;
+    height: 100vh;
+    width:20vw;
+    overflow: auto;
+    background-color: black;
+    opacity: 0.95;
+    scrollbar-width: none;
+}
+#info{
+    display:none;
+    align-items: center;
+    padding:0;
+    margin:0;
+    width:21vw;
+    height: 50vh;
+    background-color:transparent;
+    z-index: 100;
+}
+
+.tracks{
+    display:flex;
+    padding:5;
+    margin:5;
+    flex-direction: column;
+    z-index: 20;
+}
+#map{
+    height:100vh;
+    width: 80vw;
+}
+
+.item
+{
+    padding:10px;
+    height:12vh;
+    margin-bottom:0;
+}
+.trackName{
+    padding: 2px;
+    color:whitesmoke ;
+    font-family: 'monoton';
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.trackName:hover{
+    transform: scale(1.05);
+    font-weight:500;
+    color:whitesmoke;
+}
+#image{
+    z-index:10000;
+}
+a{
+    text-decoration: none;
+    font-family: "PT sans";
+    font-size:20;
+    font-weight: 800;
+    color:black;
+    margin-bottom:20;
+   
+}  
+.leaflet-popup-content{
+    width: 170px;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content
+{
+  border-radius: 5px;
+  padding:0;
+  transform: scale(0.45);
+}
+.leaflet-top, .leaflet-bottom {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+}
+
+
