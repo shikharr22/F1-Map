@@ -6,41 +6,50 @@
 #container
 {
     display: flex;
-    
-
+    flex-direction: column;
 }
 #list{
+    position: absolute;
+    bottom:0px;
+    padding-left:40px;
+    padding-right:40px;
+    z-index: 10000;
     display: flex;
-    height: 100vh;
-    width:20vw;
-    overflow: auto;
-    background-color: black;
-    opacity: 0.95;
-    scrollbar-width: none;
+    height: 32vh;
+    width: 100vw;
+    overflow-x: hidden;
+    white-space: nowrap;
+    background-color: #FFFADF;
 }
-#info{
-    display:none;
-    align-items: center;
-    padding:0;
-    margin:0;
-    width:21vw;
-    height: 50vh;
-    background-color:transparent;
-    z-index: 100;
-}
+
 
 .tracks{
     display:flex;
+    flex-direction: row;
     padding:5;
     margin:5;
-    flex-direction: column;
-    z-index: 20;
+    z-index: 100;
+    list-style: none;
+}
+.track-image
+{
+    height:20vh;
+    width:20vw;
+    background-color: white;
+    opacity: 0.8;
+    transform: scale(0.9);
+    z-index: 100000;
+
+}
+.track-image:hover
+{
+    transform: scale(1);
+    opacity:1;
 }
 #map{
     height:100vh;
-    width: 80vw;
+    width:100vw;
 }
-
 .item
 {
     padding:10px;
@@ -48,16 +57,56 @@
     margin-bottom:0;
 }
 .trackName{
+    z-index: 10000;
     padding: 2px;
-    color:whitesmoke ;
-    font-family: 'monoton';
+    color:#2B1D1B ;
     font-size: 18px;
+    text-align: center;
     text-transform: uppercase;
+    font-family: "Secular One";
 }
-.trackName:hover{
-    transform: scale(1.05);
-    font-weight:500;
-    color:whitesmoke;
+
+#compress{
+    z-index:100000;
+    position: absolute;
+    bottom:2vh;
+    left:48vw;
+    height:40px;
+    width:40px;
+}
+#expand{
+    z-index:100000;
+    position: absolute;
+    height:40px;
+    width:40px;
+    bottom:2vh;
+    left:50vw;
+}
+#left-scroll
+{
+    z-index:100000;
+    position: absolute;
+    height:50px;
+    width:35px;
+    bottom:10vh;
+    left:0vw;
+}
+#left-scroll:hover
+{
+    cursor: pointer;    
+}
+#right-scroll
+{
+    z-index:100000;
+    position: absolute;
+    height:50px;
+    width:35px;
+    bottom:10vh;
+    right:0vw;
+}
+#right-scroll:hover
+{
+    cursor: pointer;
 }
 #image{
     z-index:10000;

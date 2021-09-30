@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 2021</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet"> 
-</head>
-<body>
-    <div id="container">  
-        <div id="list">
-            <ul class="tracks">
-            </ul> </img>
-        </div>   
-        <div id="info">
-        </div>   
-        <div id="map">
-            <div id="image"></div>
-            <div id="video"></div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formula One</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Secular+One&family=Stick+No+Bills:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="container">
+      <img id="expand" src="./expand.png" />
+      <img id="compress" src="./compress.png" />
+      <img id="left-scroll" src="./left.png" />
+      <img id="right-scroll" src="./right.png" />
+      <div id="list">
+        <ul class="tracks"></ul>
+      </div>
+      <div id="map">
+        <div id="image"></div>
+      </div>
     </div>
-        
+    <div id="footer"></div>
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="./data.js"></script>
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
