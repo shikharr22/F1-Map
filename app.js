@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     intro.style.opacity = 0;
     intro.style.zIndex = 0;
-  }, 1000);
+  }, 3000);
 });
 
 const map = L.map("map").setView([54.526, 15.2551], 4);
