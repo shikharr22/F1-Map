@@ -1,3 +1,12 @@
+var intro = document.getElementById("introScreen");
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    intro.style.opacity = 0;
+    intro.style.zIndex = 0;
+  }, 1000);
+});
+
 const map = L.map("map").setView([54.526, 15.2551], 4);
 
 const url =
@@ -7,7 +16,7 @@ const attribution =
 const tileLayer = L.tileLayer(url, { attribution });
 
 tileLayer.addTo(map);
-
+const key = 1;
 function generateList() {
   let ul = document.querySelector(".tracks");
   tracksData.forEach((track) => {
@@ -21,6 +30,7 @@ function generateList() {
       document.getElementById("list").style.display = "none";
       document.getElementById("map").style.width = "100%";
     });
+
     div.classList.add("item");
     p.classList.add("trackName");
     a.href = "#";
@@ -29,6 +39,7 @@ function generateList() {
     a.appendChild(p);
     a.appendChild(image);
     image.src = track.properties.thumbnail;
+
     div.appendChild(a);
 
     li.appendChild(div);
@@ -49,9 +60,14 @@ function popupContent(feature) {
 
 const trackLayer = L.geoJSON(tracksData, {
   pointToLayer: (feature, latlng) => {
-    return L.marker(latlng, { icon: myMarker }).on("click", () =>
-      toTrack(feature)
-    );
+    return L.marker(latlng, { icon: myMarker }).on("click", () => {
+      document.getElementById("left-scroll").style.display="none";
+      document.getElementById("right-scroll").style.display="none";
+      toTrack(feature);
+      document.getElementById("list").style.display = "none";
+      document.getElementById("map").style.width = "100%";
+     
+    });
   },
 });
 
@@ -62,21 +78,30 @@ const toTrack = async (track) => {
   const b = track.geometry.coordinates[0];
 
   map.flyTo([a, b], 15, { duration: 1 });
+  document.getElementById("info").innerHTML = "";
 
   setTimeout(() => {
     document.getElementById(
       "image"
-    ).innerHTML = `<img src=${track.properties.imageUrl} style="position:absolute;top:32px;right:32px;z-index:10000;
-    width:250px;height:400px;border-radius:5px;box-shadow: 0px 5px 8px 1px rgba(255,255,255,0.79);
-    -webkit-box-shadow: 0px 5px 8px 1px rgba(255,255,255,0.79);
-    -moz-box-shadow: 0px 5px 8px 1px rgba(255,255,255,0.79);">`;
-  }, 1000);
+    ).innerHTML = `<img src=${track.properties.imageUrl} style="position:absolute;top:32px;left:32px;z-index:10000;
+    width:250px;height:400px;border-radius:5px;">`;
+    var p = document.createElement("p");
+    p.classList.add("winner-title");
+    p.innerHTML = "WINNERS";
+    document.getElementById("info").appendChild(p);
+    p.style.fontWeight = "bold";
+    p.style.textAlign = "center";
 
-  var response = await fetch(
-    `api.openweathermap.org/data/2.5/weather?lat=${a}&lon=${b}&appid=666a220a026f834ea81b0fc12f61a26f`
-  );
-  var data = response.json();
-  console.log(data);
+    track.winners.map((winner) => {
+      var top_px = 32;
+      p = document.createElement("p");
+      p.classList.add("winner");
+      p.innerHTML = winner;
+      p.style.top = "top_px+4";
+      top_px += 4;
+      document.getElementById("info").appendChild(p);
+    }, 1000);
+  });
 };
 
 document.getElementById("compress").addEventListener("click", () => {

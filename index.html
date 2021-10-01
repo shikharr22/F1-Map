@@ -13,11 +13,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Secular+One&family=Stick+No+Bills:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400;500&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <div id="introScreen">
+      <img class="fade-in" src="./intro.jpg" />
+      <p
+        class="fade-in"
+        style="position:fixed;top:75vh;font-size: 35px; color: white; text-align: center; padding: 10px"
+      >
+        Nobody does it better!!
+      </p>
+      <!-- <audio autoplay>
+        <source src="./formula_1.mp3" type="audio/mpeg">
+      </audio> -->
+    </div>
     <div id="container">
       <img id="expand" src="./expand.png" />
       <img id="compress" src="./compress.png" />
@@ -28,6 +40,7 @@
       </div>
       <div id="map">
         <div id="image"></div>
+        <div id="info"></div>
       </div>
     </div>
     <div id="footer"></div>
