@@ -19,16 +19,7 @@
   </head>
   <body>
     <div id="introScreen">
-      <img class="fade-in" src="./intro.jpg" />
-      <p
-        class="fade-in"
-        style="position:fixed;top:75vh;font-size: 35px; color: white; text-align: center; padding: 10px"
-      >
-        Nobody does it better!!
-      </p>
-      <audio autoplay>
-        <source src="./formula_1.mp3" type="audio/mpeg">
-      </audio>
+      <img id="intro_screen_pic" class="fade-in" src="./intro_screen_pic.jpg" />
     </div>
     <div id="container">
       <img id="expand" src="./expand.png" />
@@ -41,10 +32,41 @@
       <div id="map">
         <div id="image"></div>
         <div id="info"></div>
+        <div id="driver"></div>
       </div>
     </div>
     <div id="footer"></div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
 
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyB8AmIs-Fw5lOTieqhRaEmwjEzw2ebEIxs",
+
+        authDomain: "know-your-f1.firebaseapp.com",
+
+        projectId: "know-your-f1",
+
+        storageBucket: "know-your-f1.appspot.com",
+
+        messagingSenderId: "604859963316",
+
+        appId: "1:604859963316:web:21d696da570a7ddccbc4e1",
+      };
+
+      // Initialize Firebase
+
+      const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="./data.js"></script>
     <script src="./app.js"></script>

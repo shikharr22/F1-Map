@@ -1,224 +1,226 @@
-*{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-#introScreen
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top:0;
-    left:0;
-    z-index: 1000000;
-    width: 100vw;
-    height:100vh;
-    background-color: black;
-
+#introScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000000;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+#intro_screen_pic {
+  position: absolute;
+  top: 0vh;
+  height: 700px;
+  width: 300px;
 }
 
 @keyframes fadeIn {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-    
-}
-.fade-in
-{
-    position: fixed;
-    top:30vh;
-    height: 40vh;
-    width: 32vw;
-    animation: fadeIn 2s ease-in-out;
-
-}
-#container
-{
-    display: flex;
-    flex-direction: column;
-}
-#list{
-    position: absolute;
-    bottom:0px;
-    padding-left:40px;
-    padding-right:40px;
-    z-index: 1000;
-    display: flex;
-    height: 32vh;
-    width: 100vw;
-    overflow-x: hidden;
-    white-space: nowrap;
-    background-color: #171717;
-}
-
-
-.tracks{
-    display:flex;
-    flex-direction: row;
-    padding:5;
-    margin:5;
-    z-index: 100;
-    list-style: none;
-}
-.track-image
-{
-    height:20vh;
-    width:20vw;
-    background-color: white;
-    opacity: 0.8;
-    transform: scale(0.9);
-    z-index: 10000;
-
-}
-.track-image:hover{
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
     opacity: 1;
-    scale:1.1;
+  }
 }
-#map{
-    height:100vh;
-    width:100vw;
+.fade-in {
+  position: fixed;
+  top: 30vh;
+  height: 40vh;
+  width: 32vw;
+  animation: fadeIn 4s ease-in-out;
 }
-.item
-{
-    padding:10px;
-    height:12vh;
-    margin-bottom:0;
+#container {
+  display: flex;
+  flex-direction: column;
 }
-.trackName{
-    z-index: 1000;
-    padding: 2px;
-    color:#ffffff;
-    font-size: 18px;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Alegreya Sans SC";
+#list {
+  position: absolute;
+  bottom: 0px;
+  padding-left: 40px;
+  padding-right: 40px;
+  z-index: 10000;
+  display: flex;
+  height: 32vh;
+  width: 100vw;
+  overflow-x: hidden;
+  white-space: nowrap;
+  background-color: #171717;
 }
-#compress{
-    z-index:10000;
-    position: absolute;
-    bottom:2vh;
-    left:48vw;
-    height:40px;
-    width:40px;
+
+.tracks {
+  display: flex;
+  flex-direction: row;
+  padding: 5;
+  margin: 5;
+  z-index: 100;
+  list-style: none;
 }
-#expand{
-    z-index:100000;
-    position: absolute;
-    height:40px;
-    width:40px;
-    bottom:2vh;
-    left:50vw;
+.track-image {
+  height: 20vh;
+  width: 20vw;
+  background-color: white;
+  opacity: 0.8;
+  transform: scale(0.9);
+  z-index: 10000;
 }
-#left-scroll
-{
-    z-index:100000;
-    position: absolute;
-    height:50px;
-    width:35px;
-    bottom:10vh;
-    left:0vw;
+.track-image:hover {
+  opacity: 1;
+  scale: 1.1;
 }
-#left-scroll:hover
-{
-    cursor: pointer;    
+#map {
+  height: 100vh;
+  width: 100vw;
 }
-#right-scroll
-{
-    z-index:100000;
-    position: absolute;
-    height:50px;
-    width:35px;
-    bottom:10vh;
-    right:0vw;
+.item {
+  padding: 10px;
+  height: 12vh;
+  margin-bottom: 0;
 }
-#right-scroll:hover
-{
-    cursor: pointer;
+.trackName {
+  z-index: 1000;
+  padding: 2px;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Alegreya Sans SC";
 }
-#image{
-    z-index:10000;
+#compress {
+  z-index: 100000;
+  position: absolute;
+  bottom: 2vh;
+  left: 48vw;
+  height: 40px;
+  width: 40px;
 }
-#info{
-    display: flex;
-    flex-direction: column;
+#expand {
+  z-index: 100000;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  bottom: 2vh;
+  left: 50vw;
 }
-.winner-title
-{
-    padding:10px;
-    z-index: 10000;
-    position: relative;
-    top:32px;
-    left:85vw;
-    width: 10vw;
-    height: 6vh;
-    color:white;
-    text-transform: uppercase;
-    border-radius: 5px;
-    margin:2px;
-    font-size: 18px;
-    font-family: "Alegreya Sans SC";
-    background-color: black;
-    
+#left-scroll {
+  z-index: 100000;
+  position: absolute;
+  height: 50px;
+  width: 35px;
+  bottom: 10vh;
+  left: 0vw;
 }
-.winner
-{
-    padding:10px;
-    z-index: 10000;
-    position: relative;
-    top:32px;
-    left:85vw;
-    width: 10vw;
-    height: 6vh;
-    color:white;
-    text-transform: uppercase;
-    border-radius: 5px;
-    margin:2px;
-    font-size: 18px;
-    font-family: "Alegreya Sans SC";
-    background-color: black;
-    white-space: pre;
-    
+#left-scroll:hover {
+  cursor: pointer;
 }
-.winner:hover
-{
-    transform: scale(1.1);
-    background-color: white;
-    color:#aa0000;
-    cursor: pointer;
-    font-weight: bold;
+#right-scroll {
+  z-index: 100000;
+  position: absolute;
+  height: 50px;
+  width: 35px;
+  bottom: 10vh;
+  right: 0vw;
 }
-a{
-    text-decoration: none;
-    font-family: "PT sans";
-    font-size:20;
-    font-weight: 800;
-    color:black;
-    margin-bottom:20;
-   
-}  
-.leaflet-popup-content{
-    width: 170px;
-    height: 270px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#right-scroll:hover {
+  cursor: pointer;
 }
-.leaflet-popup-content-wrapper .leaflet-popup-content
-{
+#image {
+  z-index: 10000;
+}
+#info {
+  display: flex;
+  flex-direction: column;
+}
+.winner-title {
+  padding: 10px;
+  z-index: 10000;
+  position: relative;
+  top: 32px;
+  left: 85vw;
+  width: 12vw;
+  height: 6vh;
+  color: white;
+  text-transform: uppercase;
   border-radius: 5px;
-  padding:0;
+  margin: 2px;
+  font-size: 18px;
+  font-family: "Alegreya Sans SC";
+  background-color: black;
+}
+.winner {
+  padding: 10px;
+  z-index: 10000;
+  position: relative;
+  top: 32px;
+  left: 85vw;
+  width: 12vw;
+  height: 6vh;
+  color: #aa0000;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: "Alegreya Sans SC";
+  background-color: white;
+  white-space: pre;
+}
+
+@keyframes fillIn {
+  from {
+    background-color: #828282;
+    color: #aa0000;
+  }
+  50% {
+    background-color: #3b3b3b;
+    color: #f59f9f;
+  }
+  to {
+    background-color: #000000;
+    color: white;
+    animation-play-state: paused;
+  }
+}
+
+.winner:hover {
+  cursor: pointer;
+  animation: fillIn 0.5s ease-in forwards;
+}
+a {
+  text-decoration: none;
+  font-family: "PT sans";
+  font-size: 20;
+  font-weight: 800;
+  color: black;
+  margin-bottom: 20;
+}
+.leaflet-popup-content {
+  width: 170px;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+  border-radius: 5px;
+  padding: 0;
   transform: scale(0.45);
 }
-.leaflet-top, .leaflet-bottom {
-    position: absolute;
-    z-index: 10;
-    pointer-events: none;
+.leaflet-top,
+.leaflet-bottom {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
 }
-
-

@@ -1,0 +1,23 @@
+{
+  "name": "know-your-f1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shikharr22/F1-Map.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shikharr22/F1-Map/issues"
+  },
+  "homepage": "https://github.com/shikharr22/F1-Map#readme",
+  "dependencies": {
+    "firebase": "^9.3.0"
+  }
+}

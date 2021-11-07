@@ -35,7 +35,7 @@ const tracksData=[{
     "winners":["hamilton  2020", "max  2019" , "bottas  2018" , "vettel  2017" , "rosberg  2016"],
     "properties": {
       "name": "Silverstone Circuit",
-      "imageUrl":"./trackPopups/spa.jpeg",
+      "imageUrl":"./trackPopups/silverstone.jpeg",
       "thumbnail":"https://populous.com/wp-content/uploads/2018/01/POP_07_3037_00_3037_Silverstone_Exterior_Day1_DarrenHeath_FullRights.jpg",
       "videoUrl":'./spa.mp4',
     }
@@ -49,7 +49,7 @@ const tracksData=[{
     "winners":["hamilton  2020", "max  2019" , "bottas  2018" , "vettel  2017" , "rosberg  2016"],
     "properties": {
       "name": "Hungaroring",
-      "imageUrl":"./trackPopups/spa.jpeg",
+      "imageUrl":"./trackPopups/hungary.jpeg",
       "thumbnail":"https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Racehub%20header%20images%2016x9/Hungary.jpg.transform/9col/image.jpg",
       "videoUrl":'./spa.mp4',
     }
@@ -63,7 +63,7 @@ const tracksData=[{
     "winners":["hamilton  2020", "max  2019" , "bottas  2018" , "vettel  2017" , "rosberg  2016"],
     "properties": {
       "name": "Sochi Autodrom",
-      "imageUrl":"./trackPopups/spa.jpeg",
+      "imageUrl":"./trackPopups/sochi.jpeg",
       "thumbnail":"https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Racehub%20header%20images%2016x9/Russia.jpg.transform/9col/image.jpg",
       "videoUrl":'./spa.mp4',
     }
@@ -72,13 +72,13 @@ const tracksData=[{
     "type": "Feature",
     "geometry": {
       "type": "Point",
-      "coordinates": [136.5390,34.8456]
+      "coordinates": [99.0925,19.4059]
     },
     "winners":["hamilton  2020", "max  2019" , "bottas  2018" , "vettel  2017" , "kimi 2016"],
     "properties": {
-      "name": "Suzuka Circuit",
-      "imageUrl":"./trackPopups/spa.jpeg",
-      "thumbnail":"https://economictimes.indiatimes.com/thumb/msid-71517970,width-1200,height-900,resizemode-4,imgsize-145396/japanese-grand-prix.jpg?from=mdr",
+      "name": "Autódromo Hermanos Rodríguez",
+      "imageUrl":"./trackPopups/brazil.jpeg",
+      "thumbnail":"https://formularapida.net/wp-content/uploads/2019/08/AP-1XBJDRMYD1W11_news.jpg",
       "videoUrl":'./spa.mp4',
     }
   },

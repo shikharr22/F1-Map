@@ -1,10 +1,26 @@
+firebase.initializeApp({
+  apiKey: "AIzaSyB8AmIs-Fw5lOTieqhRaEmwjEzw2ebEIxs",
+
+  authDomain: "know-your-f1.firebaseapp.com",
+
+  projectId: "know-your-f1",
+
+  storageBucket: "know-your-f1.appspot.com",
+
+  messagingSenderId: "604859963316",
+
+  appId: "1:604859963316:web:21d696da570a7ddccbc4e1",
+});
+
+var db = firebase.firestore();
+
 var intro = document.getElementById("introScreen");
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     intro.style.opacity = 0;
     intro.style.zIndex = 0;
-  }, 3000);
+  }, 4000);
 });
 
 const map = L.map("map").setView([54.526, 15.2551], 4);
@@ -19,32 +35,38 @@ tileLayer.addTo(map);
 const key = 1;
 function generateList() {
   let ul = document.querySelector(".tracks");
-  tracksData.forEach((track) => {
-    const li = document.createElement("li");
-    const div = document.createElement("div");
-    const a = document.createElement("a");
-    const p = document.createElement("p");
-    const image = document.createElement("img");
-    a.addEventListener("click", () => {
-      toTrack(track);
-      document.getElementById("list").style.display = "none";
-      document.getElementById("map").style.width = "100%";
+
+  db.collection("Tracks")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((track) => {
+        const li = document.createElement("li");
+        const div = document.createElement("div");
+        const a = document.createElement("a");
+        const p = document.createElement("p");
+        const image = document.createElement("img");
+        a.addEventListener("click", () => {
+          toTrack(track.data());
+          document.getElementById("list").style.display = "none";
+          document.getElementById("map").style.width = "100%";
+          document.getElementById("driver").style.display = "none";
+        });
+
+        div.classList.add("item");
+        p.classList.add("trackName");
+        a.href = "#";
+        p.innerText = track.data().Name;
+        image.classList.add("track-image");
+        a.appendChild(p);
+        a.appendChild(image);
+        image.src = track.data().thumbnail;
+
+        div.appendChild(a);
+
+        li.appendChild(div);
+        ul.appendChild(li);
+      });
     });
-
-    div.classList.add("item");
-    p.classList.add("trackName");
-    a.href = "#";
-    p.innerText = track.properties.name;
-    image.classList.add("track-image");
-    a.appendChild(p);
-    a.appendChild(image);
-    image.src = track.properties.thumbnail;
-
-    div.appendChild(a);
-
-    li.appendChild(div);
-    ul.appendChild(li);
-  });
 }
 
 generateList();
@@ -58,32 +80,34 @@ function popupContent(feature) {
   return `<img src=${feature.properties.imageUrl} style="border-radius:5px">`;
 }
 
-const trackLayer = L.geoJSON(tracksData, {
-  pointToLayer: (feature, latlng) => {
-    return L.marker(latlng, { icon: myMarker }).on("click", () => {
-      document.getElementById("left-scroll").style.display="none";
-      document.getElementById("right-scroll").style.display="none";
-      toTrack(feature);
-      document.getElementById("list").style.display = "none";
-      document.getElementById("map").style.width = "100%";
-     
-    });
-  },
-});
+db.collection("Tracks")
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((track) => {
+      const layer = L.marker([track.data().Long, track.data().Lat], {
+        icon: myMarker,
+      }).on("click", () => {
+        document.getElementById("left-scroll").style.display = "none";
+        document.getElementById("right-scroll").style.display = "none";
+        toTrack(track.data());
+        document.getElementById("list").style.display = "none";
+        document.getElementById("map").style.width = "100%";
+      });
 
-trackLayer.addTo(map);
+      layer.addTo(map);
+    });
+  });
 
 const toTrack = async (track) => {
-  const a = track.geometry.coordinates[1];
-  const b = track.geometry.coordinates[0];
+  const a = track.Long;
+  const b = track.Lat;
 
   map.flyTo([a, b], 15, { duration: 1 });
   document.getElementById("info").innerHTML = "";
-
   setTimeout(() => {
     document.getElementById(
       "image"
-    ).innerHTML = `<img src=${track.properties.imageUrl} style="position:absolute;top:32px;left:32px;z-index:10000;
+    ).innerHTML = `<img src=${track.imageUrl} style="position:absolute;top:32px;left:32px;z-index:10000;
     width:250px;height:400px;border-radius:5px;">`;
     var p = document.createElement("p");
     p.classList.add("winner-title");
@@ -97,6 +121,30 @@ const toTrack = async (track) => {
       p = document.createElement("p");
       p.classList.add("winner");
       p.innerHTML = winner;
+      p.addEventListener("mouseover", async () => {
+        db.collection("Drivers")
+          .get()
+          .then(async (querySnapshot) => {
+            querySnapshot.forEach(async (driver) => {
+              let temp = await driver.data().Name;
+              if (temp == winner) {
+                console.log(temp);
+                d = document.createElement("div");
+                d.innerHTML = `<img src="./${temp}.jpg" style="position: absolute;
+                z-index: 1000;
+                right:2vw;
+                top:40vh;
+                width:250px;
+                height:400px;
+                border-radius:5px;
+                ">`;
+                document.getElementById("driver").appendChild(d);
+                document.getElementById("driver").style.display = "";
+              }
+            });
+          });
+      });
+
       p.style.top = "top_px+4";
       top_px += 4;
       document.getElementById("info").appendChild(p);
