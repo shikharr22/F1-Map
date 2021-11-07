@@ -19,17 +19,14 @@
 }
 #intro_screen_pic {
   position: absolute;
-  top: 0vh;
-  height: 700px;
-  width: 300px;
+  top: 12vh;
+  height: 70vh;
+  width: 60vw;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
   }
   to {
     opacity: 1;
@@ -40,7 +37,7 @@
   top: 30vh;
   height: 40vh;
   width: 32vw;
-  animation: fadeIn 4s ease-in-out;
+  animation: fadeIn 4s ease-out;
 }
 #container {
   display: flex;
@@ -57,24 +54,27 @@
   width: 100vw;
   overflow-x: hidden;
   white-space: nowrap;
-  background-color: #171717;
+  background-color: #100000;
 }
 
 .tracks {
   display: flex;
   flex-direction: row;
-  padding: 5;
+  padding: 2;
   margin: 5;
   z-index: 100;
   list-style: none;
 }
 .track-image {
+  margin-top: 3vh;
   height: 20vh;
-  width: 20vw;
+  width: 19vw;
   background-color: white;
   opacity: 0.8;
   transform: scale(0.9);
   z-index: 10000;
+  border-radius: 0.2vw;
+
 }
 .track-image:hover {
   opacity: 1;
@@ -93,7 +93,7 @@
   z-index: 1000;
   padding: 2px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 2vh;
   text-align: center;
   text-transform: uppercase;
   font-family: "Alegreya Sans SC";
@@ -144,59 +144,57 @@
   flex-direction: column;
 }
 .winner-title {
-  padding: 10px;
+  padding: 6px;
   z-index: 10000;
   position: relative;
   top: 32px;
-  left: 85vw;
-  width: 12vw;
+  left: 2vw;
+  width: 14vw;
   height: 6vh;
   color: white;
   text-transform: uppercase;
   border-radius: 5px;
   margin: 2px;
-  font-size: 18px;
+  font-size: 3vh;
   font-family: "Alegreya Sans SC";
-  background-color: black;
+  background-color: #300000;
 }
 .winner {
   padding: 10px;
   z-index: 10000;
   position: relative;
   top: 32px;
-  left: 85vw;
-  width: 12vw;
+  left: 2vw;
+  width: 14vw;
   height: 6vh;
-  color: #aa0000;
-  text-transform: uppercase;
+  color: #000000;
   border-radius: 5px;
   margin: 2px;
-  font-size: 18px;
+  font-size: 2.5vh;
   font-weight: 800;
   font-family: "Alegreya Sans SC";
-  background-color: white;
+  background-color: #FFEBEB;
   white-space: pre;
 }
 
 @keyframes fillIn {
   from {
-    background-color: #828282;
-    color: #aa0000;
+    background-color: #FFEBEB;
+    color: #000000;
   }
   50% {
-    background-color: #3b3b3b;
+    background-color: #FF4747;
     color: #f59f9f;
   }
   to {
-    background-color: #000000;
+    background-color: #B00000;
     color: white;
-    animation-play-state: paused;
   }
 }
 
 .winner:hover {
   cursor: pointer;
-  animation: fillIn 0.5s ease-in forwards;
+  animation: fillIn 0.3s ease-in forwards;
 }
 a {
   text-decoration: none;

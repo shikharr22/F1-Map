@@ -16,12 +16,12 @@ var db = firebase.firestore();
 
 var intro = document.getElementById("introScreen");
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    intro.style.opacity = 0;
-    intro.style.zIndex = 0;
-  }, 4000);
-});
+ document.addEventListener("DOMContentLoaded", () => {
+   setTimeout(() => {
+     intro.style.opacity = 0;
+     intro.style.zIndex = 0;
+   }, 5000);
+ });
 
 const map = L.map("map").setView([54.526, 15.2551], 4);
 
@@ -53,12 +53,13 @@ function generateList() {
         });
 
         div.classList.add("item");
-        p.classList.add("trackName");
         a.href = "#";
         p.innerText = track.data().Name;
         image.classList.add("track-image");
-        a.appendChild(p);
+        p.classList.add("trackName");
+        
         a.appendChild(image);
+        //a.appendChild(p);
         image.src = track.data().thumbnail;
 
         div.appendChild(a);
@@ -107,8 +108,8 @@ const toTrack = async (track) => {
   setTimeout(() => {
     document.getElementById(
       "image"
-    ).innerHTML = `<img src=${track.imageUrl} style="position:absolute;top:32px;left:32px;z-index:10000;
-    width:250px;height:400px;border-radius:5px;">`;
+    ).innerHTML = `<img src=${track.imageUrl} style="position:absolute;top:32px;right:7px;z-index:10000;
+    width:14vw;height:45vh;border-radius:5px;">`;
     var p = document.createElement("p");
     p.classList.add("winner-title");
     p.innerHTML = "WINNERS";
@@ -122,6 +123,7 @@ const toTrack = async (track) => {
       p.classList.add("winner");
       p.innerHTML = winner;
       p.addEventListener("mouseover", async () => {
+        
         db.collection("Drivers")
           .get()
           .then(async (querySnapshot) => {
@@ -130,20 +132,27 @@ const toTrack = async (track) => {
               if (temp == winner) {
                 console.log(temp);
                 d = document.createElement("div");
+
                 d.innerHTML = `<img src="./${temp}.jpg" style="position: absolute;
                 z-index: 1000;
-                right:2vw;
-                top:40vh;
-                width:250px;
-                height:400px;
+                left:2vw;
+                top:35vh;
+                width:14vw;
+                height:45vh;
                 border-radius:5px;
                 ">`;
                 document.getElementById("driver").appendChild(d);
                 document.getElementById("driver").style.display = "";
+                
               }
             });
           });
       });
+      
+      p.addEventListener("mouseout",()=>{
+        document.getElementById("driver").style.display="none";
+      })
+
 
       p.style.top = "top_px+4";
       top_px += 4;
